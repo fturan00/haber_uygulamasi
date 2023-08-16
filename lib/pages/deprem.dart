@@ -21,11 +21,12 @@ class _DepremEkraniState extends State<DepremEkrani> {
     futureDepremList = DepremVeri().getDepremVeri();
   }
 
+  @override
   Widget build(BuildContext context) {
-    baslikrengi = Color(0xffA65FD1);
+    baslikrengi = const Color(0xffA65FD1);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Son Depremler"),
+        title: const Text("Son Depremler"),
       ),
       body: FutureBuilder<List<Map<String, dynamic>>>(
         future: futureDepremList,
@@ -45,10 +46,10 @@ class _DepremEkraniState extends State<DepremEkrani> {
                               TextStyle(
                                 color: baslikrengi, fontSize: 18),
                         ),
-                        Text("-"),
+                        const Text("-"),
                         Text(
                           deprem['İl'],
-                          style: TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 18),
                         ),
                       ],
                     ),
@@ -59,80 +60,78 @@ class _DepremEkraniState extends State<DepremEkrani> {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 16, vertical: 12),
-                        child: Container(
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    "Konum: ",
-                                    style: TextStyle(color: baslikrengi),
-                                  ),
-                                  Text(deprem['Ülke'] +
-                                      '/' +
-                                      deprem['İl'] +
-                                      '/' +
-                                      deprem['İlçe'] +
-                                      '/' +
-                                      deprem['Köy'])
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Büyüklük: ",
-                                    style: TextStyle(color: baslikrengi),
-                                  ),
-                                  Text(deprem['Büyüklük']),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Enlem: ",
-                                    style: TextStyle(color: baslikrengi),
-                                  ),
-                                  Text(deprem['Enlem']),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Boylam: ",
-                                    style: TextStyle(color: baslikrengi),
-                                  ),
-                                  Text(deprem['Boylam']),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Derinlik: ",
-                                    style: TextStyle(color: baslikrengi),
-                                  ),
-                                  Text(deprem['Derinlik']),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Tip: ",
-                                    style: TextStyle(color: baslikrengi),
-                                  ),
-                                  Text(deprem['Tip']),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Diğer: ",
-                                    style: TextStyle(color: baslikrengi),
-                                  ),
-                                  Text(deprem['Diğer']),
-                                ],
-                              ),
-                            ],
-                          ),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  "Konum: ",
+                                  style: TextStyle(color: baslikrengi),
+                                ),
+                                Text(deprem['Ülke'] +
+                                    '/' +
+                                    deprem['İl'] +
+                                    '/' +
+                                    deprem['İlçe'] +
+                                    '/' +
+                                    deprem['Köy'])
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "Büyüklük: ",
+                                  style: TextStyle(color: baslikrengi),
+                                ),
+                                Text(deprem['Büyüklük']),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "Enlem: ",
+                                  style: TextStyle(color: baslikrengi),
+                                ),
+                                Text(deprem['Enlem']),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "Boylam: ",
+                                  style: TextStyle(color: baslikrengi),
+                                ),
+                                Text(deprem['Boylam']),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "Derinlik: ",
+                                  style: TextStyle(color: baslikrengi),
+                                ),
+                                Text(deprem['Derinlik']),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "Tip: ",
+                                  style: TextStyle(color: baslikrengi),
+                                ),
+                                Text(deprem['Tip']),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "Diğer: ",
+                                  style: TextStyle(color: baslikrengi),
+                                ),
+                                Text(deprem['Diğer']),
+                              ],
+                            ),
+                          ],
                         ),
                       )
                     ],
@@ -141,11 +140,11 @@ class _DepremEkraniState extends State<DepremEkrani> {
               },
             );
           } else if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Hata: ${snapshot.error}'));
           } else {
-            return Center(child: Text('Veri Yok.'));
+            return const Center(child: Text('Veri Yok.'));
           }
         },
       ),

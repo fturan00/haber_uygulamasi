@@ -41,16 +41,12 @@ class DovizVeri {
             dovizVerileriListe.add(kur);
             jsonDovizListe.clear();
           }
-
-          print(dovizVerileriListe);
-          print(jsonDovizImageListe);
         }
       }
       return dovizVerileriListe;
     } else if (response.statusCode != 200) {
       return [];
     } else {
-      print("İşlem uzun sürdü bu yüzden veriler yüklenemedi");
       return [];
     }
   }

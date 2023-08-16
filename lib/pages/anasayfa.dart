@@ -102,7 +102,7 @@ class _AnasayfaState extends State<Anasayfa> {
                        {
                       Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const DovizEkrani()));
-                      };
+                      }
                     },
                     icon: const Icon(Icons.attach_money),
                     color: Colors.white,
